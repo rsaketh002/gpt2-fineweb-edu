@@ -128,7 +128,7 @@ The model was trained from scratch and is compatible for export to Hugging Face 
 ## 🧑‍💻 Author
 
 **Saketh Reddy** | [LinkedIn](https://www.linkedin.com/in/gandeed-saketh-reddy-a1077a200/) | [GitHub](https://github.com/rsaketh002)
-
+- [Model Weights]([https://huggingface.co/datasets/fineweb](https://huggingface.co/saketh3628800/custom-gpt-124M/blob/main/pytorch_model.bin))
 ---
 
 ## 📜 License
