@@ -1,0 +1,22 @@
+# Large dataset directory
+edu_fineweb10B/
+
+# Log files and directories
+log/
+*.log
+
+# Model checkpoints
+*.pt
+*.bin
+
+# Intermediate data files
+*.npy
+
+# Experiment outputs
+checkpoints/
+output/
+wandb/
+
+# Python cache
+__pycache__/
+*.py[cod]
