@@ -133,4 +133,4 @@ The model was trained from scratch and is compatible for export to Hugging Face 
 
 ## 📜 License
 
-MIT License
+This project is licensed under the [MIT License](LICENSE).
