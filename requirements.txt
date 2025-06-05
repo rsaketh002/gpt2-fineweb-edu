@@ -1,0 +1,5 @@
+torch
+tiktoken
+numpy
+datasets
+transformers
