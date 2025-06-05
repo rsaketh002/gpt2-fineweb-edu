@@ -97,7 +97,7 @@ Evaluation is done using:
 $ git clone https://github.com/rsaketh002/gpt2-fineweb-edu.git
 
 # Install dependencies
-$ pip install torch tiktoken numpy datasets transformers
+$ pip install -r requirements.txt
 
 # Download the dataset
 $ python fineweb.py
