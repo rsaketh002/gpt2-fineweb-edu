@@ -8,7 +8,7 @@ import math
 import time
 import numpy as np
 import os
-from hellaswag import render_example, iterate_examples
+from hellaswag_eval import render_example, iterate_examples
 
 
 class CausalSelfAttention(nn.Module):
