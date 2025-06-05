@@ -387,16 +387,25 @@ class DataLoaderLite:
             y: Target tensor of shape (B, T).
         """
         B, T = self.B, self.T
-        end_pos = self.current_position + B * T + 1
-        buf = self.tokens[self.current_position:end_pos]
-        x = buf[:-1].view(B, T)
-        y = buf[1:].view(B, T)
-        self.current_position += B * T
-        # Load next shard if out of tokens
-        if self.current_position + (B * T + 1) > len(self.tokens):
+        # If we don't have enough tokens left for a full batch, move to the
+        # next shard before constructing the view. This prevents view errors
+        # when the slice is smaller than B*T+1.
+        if self.current_position + B * T + 1 > len(self.tokens):
             self.current_shard = (self.current_shard + 1) % len(self.shards)
             self.tokens = load_tokens(self.shards[self.current_shard])
             self.current_position = 0
+
+        end_pos = self.current_position + B * T + 1
+        buf = self.tokens[self.current_position:end_pos]
+
+        if buf.numel() < B * T + 1:
+            raise RuntimeError(
+                "Shard does not contain enough tokens for a full batch"
+            )
+
+        x = buf[:-1].view(B, T)
+        y = buf[1:].view(B, T)
+        self.current_position += B * T
         return x, y
 
 
